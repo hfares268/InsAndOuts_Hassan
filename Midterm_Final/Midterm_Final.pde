@@ -3,12 +3,12 @@ PImage goose;
 PImage papersplease;
 //Creates variables for text animation
 
-//opacity and fade orginates from class demo
+//opacity and fade orginates from in class demo week 4
 float opacity=20;
 float fade = 1;
 
-
-float sideways = 0;
+//original code for fall is from week 4 demo 
+float fall = 0;
 
 PImage[] games = new PImage[2];
 int images = 0; 
@@ -24,7 +24,7 @@ void setup() {
   size (800, 800);
   background (255);
   imageMode(CENTER); //draws images from center point
-  textAlign(CENTER);  //aligns text
+  textAlign(CENTER, TOP);  //aligns text
   textSize(50);  //sets size of text
 PFont f = createFont("Arial", 50);
    textFont(f);
@@ -41,7 +41,7 @@ void draw() {
   //text display and animation
   fill(opacity);
   image (Journey, width/2, height/2 +50);
-  text ("A Desert of Mysteries", width/2, height/2 - 50);  //displays text
+  text ("A Desert of Mysteries", 400, 30);  //displays text
   opacity= opacity+fade;
   /*if (opacity> 255 || opacity< 0) {
     fade = -fade;
@@ -52,29 +52,28 @@ void draw() {
    if(mouseX > 400 && mouseY < 500){
       background(20, 120, 90);
       image (goose, width/2, height/2 +50);
-      text("A world to cause chaos in", width/2, height/2);
+      text("A world to cause chaos in", 400, 30);
+      
   //println ("opacity: " + opacity);
   // println ("fade: " + fade);
   
   }else if(mouseX > 80 && mouseY > 200){
         background(108, 45, 180);
-        image (papersplease, width/2, sideways);
-         textAlign(CENTER);
+        image (papersplease, width/2, fall);
+         text("GLORY TO ARSTOZKA", 400, 30);
         fill(opacity);
-        text("GLORY TO ARSTOZKA", width/2, height/2);
-    if (sideways<height/2) {
-      sideways++;
+    if (fall < height/2) {
+      fall++;
     }
   }
   if(mouseX > 90 && mouseY > 500){
     background(180, 50, 180);
     imageMode(CENTER);
-    textAlign(CENTER);
-    fill(opacity);
-    text("World of Nightmares", width/2,  height/2);
-    //text("VROOM VROOM", width/2, height/2);
-    image(games[images], width/2, height/2, 200, 200);
-     
+   
+    fill(opacity); 
+     text("World of Nightmares", 400, 30);
+     text("VROOM VROOM", 400, 680);
+     image(games[images], width/2, height/2, 200, 200);
   }
 
 }
